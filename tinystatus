@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-title=tinystatus
+title=Status
 header="Global Status"
 timeout=10
 tmp="$(mktemp -d)"
@@ -76,10 +76,10 @@ ul { padding: 0px; }
 li { list-style: none; margin-bottom: 2px; padding: 5px; border-bottom: 1px solid #ddd;  }
 .container { max-width: 600px; width: 100%; margin: 15px auto; }
 .panel { text-align: center; padding: 10px; border: 0px; border-radius: 5px; }
-.failed-bg  { color: white; background-color: #E25D6A; }
-.success-bg { color: white; background-color: #52B86A; }
-.failed  { color: #E25D6A; }
-.success { color: #52B86A; }
+.failed-bg  { color: white; background-color: #DA2F40; font-weight: bold }
+.success-bg { color: white; background-color: #358247; font-weight: bold }
+.failed  { color: #DA2F40; }
+.success { color: #358247; }
 .small { font-size: 80%; }
 .status { float: right; }
 </style></head>
