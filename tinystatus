@@ -6,8 +6,8 @@ timeout=10
 tmp="$(mktemp -d)"
 checkfile="${1:-checks.csv}"
 incidentsfile="${2:-incidents.txt}"
-failonoutage=false
-reportonoutage=false
+failonoutage=true
+reportonoutage=true
 useragent="User-Agent: Mozilla/5.0 (X11; Linux x86_64; Debian) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
 
 command_exists(){
