@@ -5,7 +5,6 @@ header="Global Status"
 timeout=10
 tmp="$(mktemp -d)"
 checkfile="${1:-checks.csv}"
-incidentsfile="${2:-incidents.txt}"
 failonoutage=true
 reportonoutage=true
 useragent="User-Agent: Mozilla/5.0 (X11; Linux x86_64; Debian) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
@@ -117,16 +116,6 @@ done
 cat << EOF
 </ul>
 <p class=small> Last check: $(date +%FT%T%z)</p>
-EOF
-if [ -f "${incidentsfile}" ]; then
-    echo '<h1>Incidents</h1>'
-    if [ -s "${incidentsfile}" ]; then
-        sed 's|^\(.*\)$|<p>\1</p>|' "${incidentsfile}"
-    else
-        echo '<p>No incident reported yet ;)</p>'
-    fi
-fi
-cat <<EOF
 </div>
 </body></html>
 EOF
@@ -135,4 +124,3 @@ rm -r "${tmp}" 2>/dev/null
 if [ "${failonoutage}" = true ]; then
     exit "${outagenb}"
 fi
-
