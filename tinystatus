@@ -82,15 +82,18 @@ li { list-style: none; margin-bottom: 2px; padding: 5px; border-bottom: 1px soli
 .success { color: #358247; }
 .small { font-size: 80%; }
 .status { float: right; }
-</style></head>
+</style>
+</head>
 <body>
 <div class='container'>
 <h1>${header}</h1>
 EOF
 outagenb="$(find "${tmp}/ko" -mindepth 1 | grep -c 'status$')"
 if [ "${outagenb}" -ne 0 ]; then
+    echo "<link rel='icon' type='image/svg+xml' href='/error.svg'>"
     echo "<ul><li class='panel failed-bg'>${outagenb} Outage(s)</li></ul>"
 else
+    echo "<link rel='icon' type='image/svg+xml' href='/success.svg'>"
     echo "<ul><li class='panel success-bg'>All Systems Operational</li></ul>"
 fi
 cat << EOF
