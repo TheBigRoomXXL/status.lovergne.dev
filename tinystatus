@@ -79,13 +79,15 @@ li { list-style: none; margin-bottom: 2px; padding: 5px; border-bottom: 1px soli
 .success-bg { color: white; background-color: #358247; font-weight: bold }
 .failed  { color: #DA2F40; }
 .success { color: #358247; }
-.small { font-size: 80%; }
 .status { float: right; }
+.small { font-size: 80%; }
+.small > b { opacity : .8 }
 </style>
 </head>
 <body>
 <div class='container'>
 <h1>${header}</h1>
+<p class=small><b> Last check: <time datetime='$(date -Iseconds)'>$(date +%F\ %T)</time></b></p>
 EOF
 outagenb="$(find "${tmp}/ko" -mindepth 1 | grep -c 'status$')"
 if [ "${outagenb}" -ne 0 ]; then
@@ -115,7 +117,6 @@ for file in "${tmp}/ok/"*.status; do
 done
 cat << EOF
 </ul>
-<p class=small> Last check: $(date +%FT%T%z)</p>
 </div>
 </body></html>
 EOF
