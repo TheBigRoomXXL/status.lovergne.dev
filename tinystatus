@@ -68,20 +68,42 @@ done < "${checkfile}"
 wait
 
 cat << EOF
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><title>${title}</title><style>
-body { font-family: segoe ui,Roboto,Oxygen-Sans,Ubuntu,Cantarell,helvetica neue,Verdana,sans-serif; }
-h1 { margin-top: 30px; }
-ul { padding: 0px; }
-li { list-style: none; margin-bottom: 2px; padding: 5px; border-bottom: 1px solid #ddd;  }
-.container { max-width: 600px; width: 100%; margin: 15px auto; }
-.panel { text-align: center; padding: 10px; border: 0px; border-radius: 5px; }
-.failed-bg  { color: white; background-color: #DA2F40; font-weight: bold }
-.success-bg { color: white; background-color: #358247; font-weight: bold }
-.failed  { color: #DA2F40; }
-.success { color: #358247; }
-.status { float: right; }
-.small { font-size: 80%; }
-.small > b { opacity : .8 }
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>${title}</title>
+<style>
+    :root {
+        color-scheme: dark light;
+        --txt : #cfcfcf;
+        --bg : #1D1F21;
+        --red : #E01B24;
+        --green : #3c9937;
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --txt : #444;
+            --bg : white;
+            --red : #DA2F40;
+            --green : #358247;
+        }
+    }
+    body { 
+        font-family: 'Nimbus Mono PS', 'Courier New', monospace; 
+        color: var(--text) ; 
+        background: var(--bg) ; 
+    }
+    h1 { margin-top: 30px; }
+    ul { padding: 0px; }
+    li { list-style: none; margin-bottom: 2px; padding: 5px; border-bottom: 1px solid #ddd;  }
+    .container { max-width: 600px; width: 100%; margin: 15px auto; }
+    .panel { text-align: center; padding: 10px; border: 0px; border-radius: 5px; font-weight: bold}
+    .failed-bg  { color: white; background-color: var(--red); }
+    .success-bg { color: white; background-color: var(--green); }
+    .failed  { color: var(--red); }
+    .success { color: var(--green); }
+    .status { float: right; }
+    .small { font-size: 80%; }
+    .small > b { opacity : .8 }
 </style>
 </head>
 <body>
@@ -92,10 +114,10 @@ EOF
 outagenb="$(find "${tmp}/ko" -mindepth 1 | grep -c 'status$')"
 if [ "${outagenb}" -ne 0 ]; then
     echo "<link rel='icon' type='image/svg+xml' href='/error.svg'>"
-    echo "<ul><li class='panel failed-bg'>${outagenb} Outage(s)</li></ul>"
+    echo "<ul><li class='panel failed-bg'>${outagenb} OUTAGE(s)</li></ul>"
 else
     echo "<link rel='icon' type='image/svg+xml' href='/success.svg'>"
-    echo "<ul><li class='panel success-bg'>All Systems Operational</li></ul>"
+    echo "<ul><li class='panel success-bg'>ALL SYSTEMS OPERATIONAL</li></ul>"
 fi
 cat << EOF
 <h1>Services</h1>
