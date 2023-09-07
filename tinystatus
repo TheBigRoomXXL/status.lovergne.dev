@@ -6,7 +6,7 @@ timeout=10
 tmp="$(mktemp -d)"
 checkfile="${1:-checks.csv}"
 reportonoutage=true
-useragent="User-Agent: Mozilla/5.0 (X11; Linux x86_64; Debian) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36"
+useragent="tinystatus"
 
 command_exists(){
     if ! command -v "${1}" >/dev/null 2>&1; then
