@@ -1,5 +1,4 @@
 http,  200,  lovergne.dev,               https://lovergne.dev
-http,  200,  media.lovergne.dev,         https://music.lovergne.dev
+http,  200,  media.lovergne.dev,         https://media.lovergne.dev
 http,  200,  music.lovergne.dev - api,   https://music.lovergne.dev/api/
 http,  200,  music.lovergne.dev - ui,    https://music.lovergne.dev
-http,  200,  psycausette.fr,             https://psycausette.fr
